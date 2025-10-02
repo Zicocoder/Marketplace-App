@@ -10,12 +10,53 @@
             background-color: #d4d0d0;
             color: #333;
         }
-        header {
-            background-color: #d10000;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background-color: #d10000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 6px 32px rgba(209,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
+}
+header::before, header::after {
+    content: "🐻🍫";
+    position: absolute;
+    top: 50%;
+    font-size: 2.2em;
+    opacity: 0.18;
+    transform: translateY(-50%) rotate(-18deg);
+    pointer-events: none;
+}
+header::before {
+    left: 32px;
+}
+header::after {
+    right: 32px;
+    transform: translateY(-50%) rotate(18deg);
+}
+header h1 {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 2.6em;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 12px #a30000, 0 1px 0 #fff;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+header p {
+    font-size: 1.25em;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #ffeaea;
+    text-shadow: 0 1px 6px #a30000;
+    position: relative;
+    z-index: 1;
+}
         section {
             margin: 20px auto;
             padding: 20px;
@@ -24,26 +65,100 @@
             border-radius: 5px;
 
         }
-        h2 {
-            color: #4CAF50;
-            text-align: center;
-        }
-            .product {
-            margin: 20px auto;
-            padding: 10px;
-            max-width: 600px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .product img {
+h2 {
+    color: #4CAF50;
+    text-align: center;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 22px 100px 18px 100px; /* Even more horizontal padding */
+    margin-bottom: 36px;
+    border-radius: 18px;
+    border-bottom: 4px solid #4CAF50;
+    background: linear-gradient(90deg, #e8f5e9 0%, #fff 60%, #e8f5e9 100%);
+    box-shadow: 0 4px 24px rgba(76,175,80,0.13), 0 2px 8px rgba(0,0,0,0.08);
+    text-shadow:
+        0 2px 12px rgba(76,175,80,0.18),
+        0 1px 0 #fff,
+        1px 1px 0 #b2ff59;
+    position: relative;
+    overflow: hidden;
+}
+h2::before, h2::after {
+    content: "🐻🍫";
+    color: #6b3e26;
+    font-size: 1.5em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.92;
+    text-shadow: 0 2px 6px #b97a56, 0 1px 0 #fff;
+    pointer-events: none;
+}
+h2::before {
+    left: 32px; /* Move further from the text */
+    animation: choco-bounce 2.5s ease-in-out infinite;
+}
+h2::after {
+    right: 32px; /* Move further from the text */
+    animation: choco-bounce 2.5s ease-in-out infinite reverse;
+}
+@keyframes choco-bounce {
+    0%, 100% { transform: translateY(-50%) scale(1);}
+    50% { transform: translateY(-60%) scale(1.18);}
+}
+.product h3 {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.7em;
+    color: #6b3e26; /* Chocolate brown */
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    text-align: center;
+    margin: 18px 0 10px 0;
+    text-shadow:
+        0 2px 12px #b97a56,
+        0 1px 0 #fff,
+        1px 1px 0 #8d5524;
+    background: linear-gradient(90deg, #fffbe9 0%, #e3c08d 100%);
+    border-radius: 10px;
+    padding: 8px 0;
+    box-shadow: 0 2px 8px rgba(139,69,19,0.10);
+    position: relative;
+    z-index: 1;
+    border-bottom: 3px solid #8d5524;
+}
+.product img {
+    display: block;
+    margin: 16px auto 14px auto; 
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin-top: 10px;
-}
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    object-fit: contain;
+    background: #fffbe9;
+    padding: 8px;
+    max-height: 600px;
+} 
+
 .email-field {
     margin-bottom: 10px;
+    background: #4685fc;
+    border-radius: 16px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-size: 1.05em;
+    color: #f7f2f2
 }
+.contact-icon {
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+
+
 button {
     background-color: #4CAF50;
     color: #fff;
@@ -61,7 +176,37 @@ footer {
     text-align: center;
     color: #fff;
 }
-
+.product-details {
+    display: block;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0;
+}
+.product-details li {
+    background: #d8ad20;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 0.98em;
+    color: #343232;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin: 8px 0;
+    display: block;
+    text-align: center;
+}
+.product-desc {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #444;
+    background: #f8f8f8;
+    border-left: 4px solid #4CAF50;
+    padding: 12px 18px;
+    margin: 16px 0 18px 0;
+    border-radius: 6px;
+    font-size: 1.12em;
+    line-height: 1.6;
+    box-shadow: 0 1px 6px rgba(76,175,80,0.07);
+    text-align: center;
+}
     </style>
 </head>
 <body>
@@ -75,8 +220,8 @@ footer {
         <div class="product">
             <h3>Chocolate Bear - Extra Sweet</h3>
             <img src="https://www.neuhauschocolates.com/dw/image/v2/BFRH_PRD/on/demandware.static/-/Sites-neuhaus-catalog-master/default/dwb11244d3/Prepacks/5023703%20Hollow%20figure_Bear_medium_dark_hr.jpg?sw=990" alt="Chocolate Bear - Extra Sweet">
-            <p>A delicious chocolate treat for all ages, made with premium ingredients.</p>
-            <ul>
+            <p class="product-desc">A delicious chocolate treat for all ages, made with premium ingredients.</p>
+            <ul class="product-details">
                 <li>Price: 9.99 EUR</li>
                 <li>Category: Sweets</li>
                 <li>Rating: 4.8/5</li>
@@ -90,9 +235,9 @@ footer {
         <div class="product">
             <h3>Choco Bear Protein - Extra Muscle</h3>
             <img src="Images/Chocobear-AI-gen.png" alt="Choco Bear Protein - Extra Muscle">
-            <p>High-protein chocolate snack for fitness enthusiasts and athletes.</p>
-            <ul>
-                <li>Price: 14.99 EUR</li>
+            <p class="product-desc">High-protein chocolate snack for fitness enthusiasts and athletes.</p>
+            <ul class="product-details">
+                <li>Price: 14.99 EUR</li> 
                 <li>Category: Protein Snacks</li>
                 <li>Rating: 4.6/5</li>
             </ul>
